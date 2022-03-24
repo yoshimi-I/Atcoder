@@ -12,3 +12,15 @@
 - [deque専用関数](https://note.nkmk.me/python-collections-deque/)に詳しく記載してある。
 ## その他のキュー
 - 優先度付きキューというものも存在しておりこちらは最小値を取り出すとき、要素を挿入するという２点において優れた効力を発揮する。
+## 実装方法
+```
+from collections import deque
+```
+- これでdequeを使えるようにする
+
+```
+B = deque()
+or 
+C = deque([1,1,1])
+```
+- これでdequeになった
