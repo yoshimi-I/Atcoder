@@ -1,33 +1,25 @@
-N = int(input())
-S = list(input())
-Q = int(input())
-check = 0
-for i in range(Q):
-    T,A,B = map(int,input().split())
-    A-=1
-    B-=1
-    if T == 1:
-        if check == 0:
-            S[A],S[B] = S[B],S[A]
-        if check == 1:
-            if A<= N-1:
-                A = A+N
-            else:
-                A = A-N
-            if B<=N-1:
-                B = B+N
-            else:
-                B = B-N
-            S[A],S[B] = S[B],S[A]
-    else:
-        if check == 0:
-            check = 1
-        else:
-            check = 0
-if check == 0:
-    print("".join(S))
+X,K,D = map(int,input().split())
+#検算関数
+# import random
+# import debug
+# X=random.randint(-10000,10000)
+# K=random.randint(1,500)
+# D=random.randint(1,10000)
+# print("X=",X,"K=",K,"D=",D)    
+# print(debug.solver(X,K,D))
+X = abs(X)    
+ans_1 = X%D    
+ans_2 = abs(ans_1-D)
+count =0
+if X- K*D >= ans_1:
+    print(X- K*D)
+    exit()
 else:
-    left = S[:N]
-    right = S[N:]
-    ans = right+left
-    print("".join(ans))
+    count_1 = int((X - ans_1)/D)
+    remain_count = (K - count_1)%2
+    if remain_count == 0:
+        print(ans_1)
+        exit()
+    else:
+        print(ans_2)
+        exit()
